@@ -1,3 +1,4 @@
+// 'brain' is made available in index.html
 var brain = brain || {};
 
 const net = new brain.NeuralNetwork({ hiddenLayers: [3] });
