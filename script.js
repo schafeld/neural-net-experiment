@@ -10,10 +10,18 @@ const trainingData = [
   { input: [1, 1], output: [0] }
 ];
 
-net.train(trainingData);
+// net.train(trainingData);
+let errorOut = ''
+net.train(trainingData, {
+  log: error => { 
+    console.log(error); 
+    errorOut = error 
+  },
+  logPeriod: 100
+});
 
 // console.log(net.run([0, 0]));
 var output = net.run([0, 0]);
 
 const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<p>Output: ${output}</p>`;
+appDiv.innerHTML = `<div><p>Error: ${errorOut}</p> <p>Output: ${output}</p></div>`;
